@@ -1,0 +1,22 @@
+{
+  "name": "Quantisuite",
+  "short_name": "Quantisuite",
+  "description": "All-in-one professional calculator suite with scientific, graphing, currency, weather and unit converters.",
+  "start_url": ".",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0a0e27",
+  "theme_color": "#3367D6",
+  "icons": [
+    {
+      "src": "web-app-manifest-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "favicon-96x96.png",
+      "sizes": "96x96",
+      "type": "image/png"
+    }
+  ]
+}

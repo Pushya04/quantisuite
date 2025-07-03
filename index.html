@@ -1,0 +1,800 @@
+      
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quantisuite | Calculator, Converter, Currency, Weather & More</title>
+    <meta
+      name="description"
+      content="Quantisuite: Calculator, Currency, Unit Converter, Weather, and more. All-in-one professional tool for math, science, and daily life."
+    />
+    <meta
+      name="keywords"
+      content="calculator, scientific calculator, unit converter, currency, weather, climate, mathematics, professional suite"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<!-- PWA Meta -->
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#3367D6" />
+<link rel="apple-touch-icon" href="web-app-manifest-192x192.png">
+<link rel="icon" href="favicon-96x96.png" sizes="96x96" type="image/png">
+  </head>
+  <body>
+    <div class="app-container">
+      <!-- Header Section -->
+      <header class="header">
+        <div class="header-content">
+          <div class="logo-section">
+            <i class="fas fa-calculator"></i>
+            <h1>Quantisuite</h1>
+          </div>
+          <p class="header-subtitle">
+            All-in-one: Calculator, Converter, Currency, Weather, and more!
+          </p>
+          <div class="header-stats">
+            <div class="stat-item">
+              <i class="fas fa-history"></i>
+              <span>History Tracking</span>
+            </div>
+            <div class="stat-item">
+              <i class="fas fa-exchange-alt"></i>
+              <span>Unit Conversion</span>
+            </div>
+            <div class="stat-item">
+              <i class="fas fa-flask"></i>
+              <span>Scientific Functions</span>
+            </div>
+            <div class="stat-item">
+              <i class="fas fa-cloud-sun"></i>
+              <span>Weather & Climate</span>
+            </div>
+          </div>
+        </div>
+        </header>
+<div class="theme-toggle">
+    <button class="theme-btn" id="themeToggle" title="Toggle Theme">
+        <i class="fas fa-moon" id="themeIcon"></i>
+    </button>
+</div>
+      <!-- Navigation Tabs -->
+      <nav class="nav-tabs">
+        <button class="nav-tab active" data-tab="simple">
+          <i class="fas fa-plus"></i>
+          <span>Simple Calculator</span>
+        </button>
+        <button class="nav-tab" data-tab="scientific">
+          <i class="fas fa-atom"></i>
+          <span>Scientific Calculator</span>
+        </button>
+        <button class="nav-tab" data-tab="graphing">
+          <i class="fas fa-chart-line"></i>
+          <span>Graphing</span>
+        </button>
+        <button class="nav-tab" data-tab="programmer">
+          <i class="fas fa-microchip"></i>
+          <span>Programmer</span>
+        </button>
+        <button class="nav-tab" data-tab="currency">
+          <i class="fas fa-dollar-sign"></i>
+          <span>Currency</span>
+        </button>
+        <button class="nav-tab" data-tab="weather">
+          <i class="fas fa-cloud-sun"></i>
+          <span>Weather</span>
+        </button>
+        <button class="nav-tab" data-tab="converter">
+          <i class="fas fa-exchange-alt"></i>
+          <span>Unit Converter</span>
+        </button>
+      </nav>
+
+      <!-- Main Content Area -->
+      <div class="content-wrapper">
+        <main class="main-content">
+
+          <!-- Simple Calculator Tab -->
+          <div id="simple-tab" class="tab-content active">
+            <div class="calculator-section">
+              <div class="calculator simple-calc">
+                <div class="calc-header">
+                  <h3><i class="fas fa-plus-circle"></i> Simple Calculator</h3>
+                  <div class="calc-actions">
+                    <button class="action-btn" onclick="toggleTheme()">
+                      <i class="fas fa-palette"></i>
+                    </button>
+                  </div>
+                </div>
+                <div class="display-container">
+                  <input
+                    type="text"
+                    class="display"
+                    id="simple-display"
+                    placeholder="0"
+                    readonly
+                  />
+                  <div class="display-info">
+                    <span class="expression-preview" id="simple-preview"></span>
+                  </div>
+                </div>
+                <div class="keypad simple-keypad">
+                  <button class="calc-btn clear" onclick="clearDisplay('simple')"
+>
+                    <i class="fas fa-trash"></i> Clear
+                  </button>
+                  <button
+                    class="calc-btn backspace"
+                    onclick="backspace('simple')"
+                  >
+                    <i class="fas fa-backspace"></i>
+                  </button>
+                  <button
+                    class="calc-btn operator"
+                    onclick="append('simple', '/')"
+                  >
+                    <i class="fas fa-divide"></i>
+                  </button>
+                  <button
+                    class="calc-btn operator"
+                    onclick="append('simple', '*')"
+                  >
+                    <i class="fas fa-times"></i>
+                  </button>
+
+                  <button
+                    class="calc-btn number"
+                    onclick="append('simple', '7')"
+                  >
+                    7
+                  </button>
+                  <button
+                    class="calc-btn number"
+                    onclick="append('simple', '8')"
+                  >
+                    8
+                  </button>
+                  <button
+                    class="calc-btn number"
+                    onclick="append('simple', '9')"
+                  >
+                    9
+                  </button>
+                  <button
+                    class="calc-btn operator"
+                    onclick="append('simple', '-')"
+                  >
+                    <i class="fas fa-minus"></i>
+                  </button>
+
+                  <button
+                    class="calc-btn number"
+                    onclick="append('simple', '4')"
+                  >
+                    4
+                  </button>
+                  <button
+                    class="calc-btn number"
+                    onclick="append('simple', '5')"
+                  >
+                    5
+                  </button>
+                  <button
+                    class="calc-btn number"
+                    onclick="append('simple', '6')"
+                  >
+                    6
+                  </button>
+                  <button
+                    class="calc-btn operator"
+                    onclick="append('simple', '+')"
+                  >
+                    <i class="fas fa-plus"></i>
+                  </button>
+
+                  <button
+                    class="calc-btn number"
+                    onclick="append('simple', '1')"
+                  >
+                    1
+                  </button>
+                  <button
+                    class="calc-btn number"
+                    onclick="append('simple', '2')"
+                  >
+                    2
+                  </button>
+                  <button
+                    class="calc-btn number"
+                    onclick="append('simple', '3')"
+                  >
+                    3
+                  </button>
+                  <button
+                    class="calc-btn equals"
+                    onclick="calculate('simple')"
+                    style="grid-row: span 2"
+                  >
+                    <i class="fas fa-equals"></i>
+                  </button>
+
+                  <button
+                    class="calc-btn number zero"
+                    onclick="append('simple', '0')"
+                  >
+                    0
+                  </button>
+                  <button
+                    class="calc-btn number"
+                    onclick="append('simple', '.')"
+                  >
+                    .
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Graphing Calculator Tab -->
+          <div id="graphing-tab" class="tab-content">
+            <div class="calculator-section">
+              <div class="calculator graphing-calc">
+                <div class="calc-header">
+                  <h3><i class="fas fa-chart-line"></i> Graphing Calculator</h3>
+                </div>
+                <div class="display-container">
+                  <input type="text" class="display" id="graphing-display" placeholder="Enter equation, e.g. y=2*x+1" />
+                  <button class="action-btn" onclick="plotGraph()"><i class="fas fa-chart-line"></i> Plot</button>
+                </div>
+                <canvas id="graph-canvas" width="500" height="300"></canvas>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Weather/Climate Tab -->
+      <div id="weather-tab" class="tab-content">
+        <div class="calculator-section">
+          <div class="calculator weather-calc">
+            <div class="calc-header">
+              <h3><i class="fas fa-cloud-sun"></i> Weather & Climate</h3>
+            </div>
+            <div class="display-container" style="flex-direction:column;align-items:center;gap:1rem;">
+              <div style="display:flex;gap:0.5rem;width:100%;max-width:350px;">
+                <input type="text" id="weather-city" placeholder="Enter city (e.g. London)" style="flex:1;" />
+                <button class="action-btn" style="min-width:120px;" onclick="showWeather(document.getElementById('weather-city').value)"><i class="fas fa-search"></i> Get Weather</button>
+              </div>
+              <div id="weather-box" class="weather-result" style="width:100%;max-width:350px;margin-top:0.5rem;text-align:center;">Enter a city and click Get Weather.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+          <!-- Programmer Calculator Tab -->
+          <div id="programmer-tab" class="tab-content">
+  <div class="calculator-section">
+    <div class="calculator">
+      <div class="calc-header">
+        <h3><i class="fas fa-microchip"></i> Programmer Calculator</h3>
+        <div class="calc-actions">
+          <button class="action-btn" onclick="clearDisplay('programmer')"><i class="fas fa-undo"></i> Clear</button>
+        </div>
+      </div>
+      <div class="display-container">
+        <input type="text" id="programmer-display" class="display" readonly value="0">
+        <div class="display-info">
+          <span class="expression-preview" id="programmer-preview"></span>
+        </div>
+      </div>
+      <div class="keypad">
+        <select id="programmer-base" onchange="updateProgrammerDisplay()">
+          <option value="decimal">Decimal</option>
+          <option value="binary">Binary</option>
+          <option value="octal">Octal</option>
+          <option value="hexadecimal">Hexadecimal</option>
+        </select>
+        <div class="keypad programmer-keypad">
+          <button class="calc-btn function" onclick="bitwiseOperation('AND')">AND</button>
+          <button class="calc-btn function" onclick="bitwiseOperation('OR')">OR</button>
+          <button class="calc-btn function" onclick="bitwiseOperation('XOR')">XOR</button>
+          <button class="calc-btn function" onclick="bitwiseOperation('NOT')">NOT</button>
+          <button class="calc-btn function" onclick="bitwiseOperation('<<')">&lt;&lt;</button>
+          <button class="calc-btn function" onclick="bitwiseOperation('>>')">&gt;&gt;</button>
+          <button class="calc-btn number" onclick="append('programmer', '7')">7</button>
+          <button class="calc-btn number" onclick="append('programmer', '8')">8</button>
+          <button class="calc-btn number" onclick="append('programmer', '9')">9</button>
+          <button class="calc-btn number" onclick="append('programmer', '4')">4</button>
+          <button class="calc-btn number" onclick="append('programmer', '5')">5</button>
+          <button class="calc-btn number" onclick="append('programmer', '6')">6</button>
+          <button class="calc-btn number" onclick="append('programmer', '1')">1</button>
+          <button class="calc-btn number" onclick="append('programmer', '2')">2</button>
+          <button class="calc-btn number" onclick="append('programmer', '3')">3</button>
+          <button class="calc-btn number zero" onclick="append('programmer', '0')">0</button>
+          <button class="calc-btn number" onclick="append('programmer', 'A')">A</button>
+          <button class="calc-btn number" onclick="append('programmer', 'B')">B</button>
+          <button class="calc-btn number" onclick="append('programmer', 'C')">C</button>
+          <button class="calc-btn number" onclick="append('programmer', 'D')">D</button>
+          <button class="calc-btn number" onclick="append('programmer', 'E')">E</button>
+          <button class="calc-btn number" onclick="append('programmer', 'F')">F</button>
+        </div>
+        <div class="programmer-results">
+          <p>Bin: <span id="bin-result">0</span></p>
+          <p>Oct: <span id="oct-result">0</span></p>
+          <p>Dec: <span id="dec-result">0</span></p>
+          <p>Hex: <span id="hex-result">0</span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+          <!-- Currency Converter Tab -->
+          <div id="currency-tab" class="tab-content">
+            <div class="calculator-section">
+              <div class="calculator currency-calc">
+                <div class="calc-header">
+                  <h3><i class="fas fa-dollar-sign"></i> Currency Converter</h3>
+                </div>
+                <form class="currency-controls" onsubmit="performCurrencyConversion(); return false;" style="display:flex;gap:1rem;flex-wrap:wrap;align-items:center;justify-content:center;">
+                  <label for="currency-from">From</label>
+                  <select id="currency-from" class="unit-select"></select>
+                  <input type="number" id="currency-amount" class="unit-input" placeholder="Amount" min="0" step="0.01" required style="max-width:120px;">
+                  <span>to</span>
+                  <select id="currency-to" class="unit-select"></select>
+                  <button type="submit" class="action-btn">Convert</button>
+                </form>
+                <div class="currency-result" id="currency-result" style="margin-top:1rem;text-align:center;">Enter amount and select currencies to convert.</div>
+              </div>
+            </div>
+          </div>
+          <!-- Scientific Calculator Tab -->
+          <div id="scientific-tab" class="tab-content">
+            <div class="calculator-section">
+              <div class="calculator scientific-calc">
+                <div class="calc-header">
+                  <h3><i class="fas fa-atom"></i> Scientific Calculator</h3>
+                  <div class="calc-actions">
+                    <button class="action-btn" onclick="toggleAngleMode()">
+                      <span id="angle-mode">RAD</span>
+                    </button>
+                  </div>
+                </div>
+                <div class="display-container">
+                  <input
+                    type="text"
+                    class="display"
+                    id="scientific-display"
+                    placeholder="0"
+                    readonly
+                  />
+                  <div class="display-info">
+                    <span
+                      class="expression-preview"
+                      id="scientific-preview"
+                    ></span>
+                  </div>
+                </div>
+                <div class="keypad scientific-keypad">
+                  <!-- Row 1: Advanced Functions -->
+                  <button
+                    class="calc-btn function"
+                    onclick="append('scientific', 'sin(')"
+                  >
+                    sin
+                  </button>
+                  <button
+                    class="calc-btn function"
+                    onclick="append('scientific', 'cos(')"
+                  >
+                    cos
+                  </button>
+                  <button
+                    class="calc-btn function"
+                    onclick="append('scientific', 'tan(')"
+                  >
+                    tan
+                  </button>
+                  <button
+                    class="calc-btn function"
+                    onclick="append('scientific', 'log(')"
+                  >
+                    log
+                  </button>
+                  <button
+                    class="calc-btn function"
+                    onclick="append('scientific', 'ln(')"
+                  >
+                    ln
+                  </button>
+
+                  <!-- Row 2: Inverse Functions -->
+                  <button
+                    class="calc-btn function"
+                    onclick="append('scientific', 'asin(')"
+                  >
+                    asin
+                  </button>
+                  <button
+                    class="calc-btn function"
+                    onclick="append('scientific', 'acos(')"
+                  >
+                    acos
+                  </button>
+                  <button
+                    class="calc-btn function"
+                    onclick="append('scientific', 'atan(')"
+                  >
+                    atan
+                  </button>
+                  <button
+                    class="calc-btn function"
+                    onclick="append('scientific', 'sqrt(')"
+                  >
+                    √
+                  </button>
+                  <button
+                    class="calc-btn function"
+                    onclick="append('scientific', 'cbrt(')"
+                  >
+                    ∛
+                  </button>
+
+                  <!-- Row 3: Constants and Powers -->
+                  <button
+                    class="calc-btn constant"
+                    onclick="append('scientific', 'PI')"
+                  >
+                    π
+                  </button>
+                  <button
+                    class="calc-btn constant"
+                    onclick="append('scientific', 'E')"
+                  >
+                    e
+                  </button>
+                  <button
+                    class="calc-btn function"
+                    onclick="append('scientific', 'pow(')"
+                  >
+                    x^y
+                  </button>
+                  <button
+                    class="calc-btn function"
+                    onclick="append('scientific', 'exp(')"
+                  >
+                    eˣ
+                  </button>
+                  <button
+                    class="calc-btn function"
+                    onclick="factorial('scientific')"
+                  >
+                    x!
+                  </button>
+
+                  <!-- Row 4: Numbers and Basic Operations -->
+                  <button
+                    class="calc-btn clear"
+                    onclick="clearDisplay('scientific')"
+                  >
+                    C
+                  </button>
+                  <button
+                    class="calc-btn backspace"
+                    onclick="backspace('scientific')"
+                  >
+                    ⌫
+                  </button>
+                  <button class="calc-btn" onclick="append('scientific', '(')">
+                    (
+                  </button>
+                  <button class="calc-btn" onclick="append('scientific', ')')">
+                    )
+                  </button>
+                  <button
+                    class="calc-btn operator"
+                    onclick="append('scientific', '/')"
+                  >
+                    ÷
+                  </button>
+
+                  <button
+                    class="calc-btn number"
+                    onclick="append('scientific', '7')"
+                  >
+                    7
+                  </button>
+                  <button
+                    class="calc-btn number"
+                    onclick="append('scientific', '8')"
+                  >
+                    8
+                  </button>
+                  <button
+                    class="calc-btn number"
+                    onclick="append('scientific', '9')"
+                  >
+                    9
+                  </button>
+                  <button
+                    class="calc-btn operator"
+                    onclick="append('scientific', '*')"
+                  >
+                    ×
+                  </button>
+                  <button
+                    class="calc-btn function"
+                    onclick="append('scientific', 'abs(')"
+                  >
+                    |x|
+                  </button>
+
+                  <button
+                    class="calc-btn number"
+                    onclick="append('scientific', '4')"
+                  >
+                    4
+                  </button>
+                  <button
+                    class="calc-btn number"
+                    onclick="append('scientific', '5')"
+                  >
+                    5
+                  </button>
+                  <button
+                    class="calc-btn number"
+                    onclick="append('scientific', '6')"
+                  >
+                    6
+                  </button>
+                  <button
+                    class="calc-btn operator"
+                    onclick="append('scientific', '-')"
+                  >
+                    -
+                  </button>
+                  <button
+                    class="calc-btn function"
+                    onclick="append('scientific', '1/')"
+                  >
+                    1/x
+                  </button>
+
+                  <button
+                    class="calc-btn number"
+                    onclick="append('scientific', '1')"
+                  >
+                    1
+                  </button>
+                  <button
+                    class="calc-btn number"
+                    onclick="append('scientific', '2')"
+                  >
+                    2
+                  </button>
+                  <button
+                    class="calc-btn number"
+                    onclick="append('scientific', '3')"
+                  >
+                    3
+                  </button>
+                  <button
+                    class="calc-btn operator"
+                    onclick="append('scientific', '+')"
+                  >
+                    +
+                  </button>
+                  <button
+                    class="calc-btn function"
+                    onclick="append('scientific', ',')"
+                  >
+                    ,
+                  </button>
+
+                  <button
+                    class="calc-btn number zero"
+                    onclick="append('scientific', '0')"
+                  >
+                    0
+                  </button>
+                  <button
+                    class="calc-btn number"
+                    onclick="append('scientific', '.')"
+                  >
+                    .
+                  </button>
+                  <button
+                    class="calc-btn equals"
+                    onclick="calculate('scientific')"
+                    style="grid-column: span 2"
+                  >
+                    =
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Unit Converter Tab -->
+          <div id="converter-tab" class="tab-content">
+            <div class="converter-nav">
+              <button class="converter-nav-btn active" data-converter="length">
+                <i class="fas fa-ruler"></i> Length
+              </button>
+              <button class="converter-nav-btn" data-converter="area">
+                <i class="fas fa-square"></i> Area
+              </button>
+              <button class="converter-nav-btn" data-converter="volume">
+                <i class="fas fa-cube"></i> Volume
+              </button>
+              <button class="converter-nav-btn" data-converter="mass">
+                <i class="fas fa-weight"></i> Mass
+              </button>
+              <button class="converter-nav-btn" data-converter="temperature">
+                <i class="fas fa-thermometer-half"></i> Temperature
+              </button>
+              <button class="converter-nav-btn" data-converter="data">
+                <i class="fas fa-hdd"></i> Data
+              </button>
+              <button class="converter-nav-btn" data-converter="speed">
+                <i class="fas fa-tachometer-alt"></i> Speed
+              </button>
+              <button class="converter-nav-btn" data-converter="time">
+                <i class="fas fa-clock"></i> Time
+              </button>
+              <button class="converter-nav-btn" data-converter="interest">
+                <i class="fas fa-percent"></i> Interest
+              </button>
+            </div>
+
+            <div class="converter-content">
+              <!-- Length Converter -->
+              <div id="length-converter" class="converter-section active">
+                <div class="converter-card">
+                  <h4><i class="fas fa-ruler"></i> Length Converter</h4>
+                  <div class="converter-grid">
+                    <div class="input-group">
+                      <label>From</label>
+                      <select id="length-from" class="unit-select">
+                        <option value="m">Meters (m)</option>
+                        <option value="km">Kilometers (km)</option>
+                        <option value="cm">Centimeters (cm)</option>
+                        <option value="mm">Millimeters (mm)</option>
+                        <option value="in">Inches (in)</option>
+                        <option value="ft">Feet (ft)</option>
+                        <option value="yd">Yards (yd)</option>
+                        <option value="mi">Miles (mi)</option>
+                      </select>
+                      <input
+                        type="number"
+                        id="length-input"
+                        class="unit-input"
+                        placeholder="Enter value"
+                        step="any"
+                      />
+                    </div>
+                    <div class="conversion-arrow">
+                      <i class="fas fa-arrow-right"></i>
+                    </div>
+                    <div class="input-group">
+                      <label>To</label>
+                      <select id="length-to" class="unit-select">
+                        <option value="m">Meters (m)</option>
+                        <option value="km">Kilometers (km)</option>
+                        <option value="cm">Centimeters (cm)</option>
+                        <option value="mm">Millimeters (mm)</option>
+                        <option value="in">Inches (in)</option>
+                        <option value="ft" selected>Feet (ft)</option>
+                        <option value="yd">Yards (yd)</option>
+                        <option value="mi">Miles (mi)</option>
+                      </select>
+                      <div class="result-display" id="length-result">0 ft</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Additional converters will be added dynamically -->
+            </div>
+          </div>
+        </main>
+
+        <!-- History Sidebar -->
+        <aside class="history-sidebar" id="history-sidebar">
+          <div class="history-header">
+            <h3><i class="fas fa-history"></i> Calculation History</h3>
+            <div class="history-actions">
+              <button
+                class="action-btn"
+                onclick="exportHistory()"
+                title="Export History"
+              >
+                <i class="fas fa-download"></i>
+              </button>
+              <button
+                class="action-btn"
+                onclick="clearHistory()"
+                title="Clear History"
+              >
+                <i class="fas fa-trash"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="history-stats">
+            <div class="stat">
+              <span class="stat-value" id="total-calculations">0</span>
+              <span class="stat-label">Total Calculations</span>
+            </div>
+            <div class="stat">
+              <span class="stat-value" id="today-calculations">0</span>
+              <span class="stat-label">Today</span>
+            </div>
+          </div>
+
+          <div class="history-search">
+            <input
+              type="text"
+              id="history-search"
+              placeholder="Search history..."
+              class="search-input"
+            />
+            <i class="fas fa-search"></i>
+          </div>
+
+          <div class="history-filter">
+            <select id="history-filter" class="filter-select">
+              <option value="all">All Calculations</option>
+              <option value="simple">Simple Calculator</option>
+              <option value="scientific">Scientific Calculator</option>
+              <option value="today">Today</option>
+              <option value="week">This Week</option>
+            </select>
+          </div>
+
+          <div class="history-list" id="history-list">
+            <div class="empty-history">
+              <i class="fas fa-calculator"></i>
+              <p>No calculations yet</p>
+              <small>Start calculating to see your history</small>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-content">
+        <p>
+          &copy; 2024 Quantisuite. Built with ❤️ for
+          universal productivity and knowledge.
+        </p>
+        <div class="footer-links">
+          <a href="https://github.com/Pushya04" target="_blank">
+            <i class="fab fa-github"></i> GitHub
+          </a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Chart.js for Graphing Calculator -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+    <script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('service-worker.js')
+      .then(reg => console.log("✅ Service Worker Registered:", reg.scope))
+      .catch(err => console.error("❌ SW registration failed:", err));
+  }
+</script>
+  </body>
+</html>
